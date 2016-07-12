@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/find', function(req, res, next) {
-  db.find({name:'cow'},function(re){
+  db.find({},function(re){
     res.render('admins/find_result',re );
   })
 });

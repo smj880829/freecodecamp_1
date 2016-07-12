@@ -2,4 +2,5 @@ extends layout
 
 block content
   br
-  p wow #{name} #{sex}
+  each item, i in re
+      li #{item}: #{i}
