@@ -7,7 +7,8 @@ mongo.connect(db_Config.url,function(err,db){
     parrots.find(
   ).toArray(function(err, docs) {
       if (err) throw err
-      console.log(docs)
+
       db.close()
+      console.log(docs)
     })
 })
