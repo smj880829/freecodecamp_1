@@ -1,4 +1,4 @@
-var ip = "mongodb://ec2-54-238-237-181.ap-northeast-1.compute.amazonaws.com"
+var ip = "mongodb://ec2-54-238-143-8.ap-northeast-1.compute.amazonaws.com"
 var port = 27017
 var db = "free"
 
