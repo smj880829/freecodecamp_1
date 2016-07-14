@@ -10,7 +10,24 @@ block content
   button.btn.btn-warning.btn-lg(type='button', data-toggle="modal", href="#myModal", onclick="updateData()") 수정
   &nbsp
   button.btn.btn-danger.btn-lg(type='button') 삭제
+  &nbsp
+  button.btn.btn-danger.btn-lg(type='button', onclick="test()") TEST
 
   div.form-group.has-success
     label.control-label(for='inputSuccess1') 입력
     input#input_1.form-control(type='text')
+
+  div.form-inline(ng-controller='TodoListController as todoList')
+    form.form-group(ng-submit="todoList.addTodo()")
+      input.btn.btn-default.btn-lg(type="submit", value="추가")
+    &nbsp
+    form.form-group(ng-submit="todoList.delTodo()")
+      input.btn.btn-default.btn-lg(type="submit", value="삭제")
+    &nbsp
+    form.form-group(ng-submit="todoList.test()")
+      input.btn.btn-default.btn-lg(type="submit", value="TEST")
+    br
+    br
+    .form-group(ng-repeat='todo in todoList.todos')
+      input.form-control(type='text', value='')
+      &nbsp
