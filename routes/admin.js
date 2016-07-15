@@ -14,6 +14,13 @@ router.get('/test', function(req, res, next) {
   })
 });
 
+router.get('/find', function(req, res, next) {
+  var flter = {};
+  db.find(flter,function(re){
+    res.send(re );
+  })
+});
+
 router.post('/find', function(req, res, next) {
   var flter = {};
   if(req.param('filter') != ""){
@@ -24,6 +31,8 @@ router.post('/find', function(req, res, next) {
     res.send(re );
   })
 });
+
+
 
 router.post('/insert', function(req, res, next) {
   if(req.param('query') != ""){

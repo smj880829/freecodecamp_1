@@ -15,19 +15,30 @@ block content
 
   div.form-group.has-success
     label.control-label(for='inputSuccess1') 입력
-    input#input_1.form-control(type='text')
+    input#input_1.form-control(type='text' ng-model='input_1')
 
-  div.form-inline(ng-controller='TodoListController as todoList')
-    form.form-group(ng-submit="todoList.addTodo()")
-      input.btn.btn-default.btn-lg(type="submit", value="추가")
+  div(ng-controller='appCtl')
+    button.btn.btn-default.btn-lg(data-toggle="modal", href="#myModal", ng-click="getData()") 조회
     &nbsp
-    form.form-group(ng-submit="todoList.delTodo()")
-      input.btn.btn-default.btn-lg(type="submit", value="삭제")
+    button.btn.btn-primary.btn-lg(data-toggle="modal", href="#myModal", onclick="insertData()") 입력
     &nbsp
-    form.form-group(ng-submit="todoList.test()")
-      input.btn.btn-default.btn-lg(type="submit", value="TEST")
-    br
-    br
-    .form-group(ng-repeat='todo in todoList.todos')
-      input.form-control(type='text', value='')
-      &nbsp
+    button.btn.btn-warning.btn-lg(data-toggle="modal", href="#myModal", onclick="updateData()") 수정
+    &nbsp
+    button.btn.btn-danger.btn-lg 삭제
+    &nbsp
+    button.btn.btn-danger.btn-lg(type='button', onclick="test()") TEST
+
+
+
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#myModalLabel.modal-title Modal title
+          #modal_body.modal-body
+            p
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary(type='button') Save changes
